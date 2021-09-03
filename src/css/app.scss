@@ -1,0 +1,16 @@
+// app global css in SCSS form
+.quasar-logo_img {
+  border-radius: 50%;
+  height: 38px;
+  margin-right: 8px;
+  transform: rotate(0deg);
+  transition: transform .8s ease-in-out;
+  width: 38px;
+}
+.header{
+  background-color: #0000001a;
+}
+.quasar-logo_img:hover{
+  transform: rotate(360deg);
+}
+
