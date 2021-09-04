@@ -13,7 +13,7 @@
         <q-toggle
           :label="language"
           color="black"
-          @update:model-value="change"
+          @update:model-value="changeLanguage"
           false-value="中文"
           true-value="English"
           v-model="language"
@@ -86,6 +86,8 @@ const pinkModel = ref("暗黑");
 function change(val) {
   Dark.toggle();
 }
+//
+function changeLanguage() {}
 // const loginName = ref("admin")
 // const loginPass = ref("admin")
 // const  rememberMe = ref(false)
