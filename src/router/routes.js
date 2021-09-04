@@ -13,7 +13,13 @@ const routes = [
   {
     path: '/:catchAll(.*)*',
     component: () => import('pages/Error404.vue')
-  }
+  },
+  //login
+  {
+    path: "/login",
+    name: "login",
+    component: () => import("pages/login/Login"),
+  },
 ]
 
 export default routes

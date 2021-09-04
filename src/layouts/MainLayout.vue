@@ -1,12 +1,15 @@
 <template>
   <q-layout view="hHh LpR fff">
-
     <q-header bordered class="bg-primary text-white" height-hint="98">
       <q-toolbar>
         <q-btn dense flat round icon="menu" @click="toggleLeftDrawer" />
         <q-toolbar-title>
           <q-avatar>
-            <img class="quasar-logo_img" src="~assets/logo.svg" alt="quasar_logo">
+            <img
+              class="quasar-logo_img"
+              src="~assets/logo.svg"
+              alt="quasar_logo"
+            />
           </q-avatar>
           Title
           <q-toggle
@@ -34,25 +37,22 @@
     <q-page-container>
       <router-view />
     </q-page-container>
-
   </q-layout>
 </template>
 
 <script setup>
-  import { Dark } from 'quasar'
-  import { ref } from 'vue'
+import { Dark } from "quasar";
+import { ref } from "vue";
 
-  const leftDrawerOpen = ref(false)
-  const pinkModel = ref("Agreed")
-  function toggleLeftDrawer () {
-    leftDrawerOpen.value = !leftDrawerOpen.value
-  }
-  function change(val) {
-    Dark.toggle()
-  }
+const leftDrawerOpen = ref(false);
+const pinkModel = ref("Agreed");
+function toggleLeftDrawer() {
+  leftDrawerOpen.value = !leftDrawerOpen.value;
+}
+function change(val) {
+  Dark.toggle();
+}
 
-  // console.log(this.$q.dark.isActive)
-  // console.log(this.$q.dark.mode)
-
-
+// console.log(this.$q.dark.isActive)
+// console.log(this.$q.dark.mode)
 </script>
