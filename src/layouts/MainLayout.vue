@@ -4,6 +4,13 @@
       <q-toolbar>
         <q-btn dense flat round icon="menu" @click="toggleLeftDrawer" />
         <q-toolbar-title>
+          <q-avatar>
+            <img
+              class="quasar-logo_img"
+              src="~assets/logo.svg"
+              alt="quasar_logo"
+            />
+          </q-avatar>
           Title
           <q-toggle
             :label="pinkModel"
