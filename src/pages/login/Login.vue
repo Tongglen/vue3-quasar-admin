@@ -19,7 +19,6 @@
           v-model="language"
         />
       </div>
-      <!--    <q-input v-model="text" label="用户名"  model-value=""/>-->
       <div class="text-h4">登录</div>
       <q-input v-model="loginName" label="账号" />
       <q-input v-model="loginPass" label="密码" type="password" />
@@ -88,24 +87,24 @@ function change(val) {
 }
 //
 function changeLanguage() {}
-// const loginName = ref("admin")
-// const loginPass = ref("admin")
-// const  rememberMe = ref(false)
-// const tips = ref(false),
+const loginName = ref("admin");
+const loginPass = ref("admin")
+const  rememberMe = ref(false)
+const tips = ref(false),
 
-// function submit() {
-//   if (loginName.value) {
-//     quasar.notify("用户名不能为空！");
-//     return;
-//   }
-//   if (!loginPass.value) {
-//     quasar.notify("密码不能为空！");
-//     return;
-//   }
-//   quasar.loading.show({
-//     message: "登录中",
-//   });
-// }
+function submit() {
+  if (loginName.value) {
+    quasar.notify("用户名不能为空！");
+    return;
+  }
+  if (!loginPass.value) {
+    quasar.notify("密码不能为空！");
+    return;
+  }
+  quasar.loading.show({
+    message: "登录中",
+  });
+}
 </script>
 
 <style lang="scss" scoped>

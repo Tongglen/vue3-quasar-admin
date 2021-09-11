@@ -14,7 +14,7 @@ const routes = [
     path: '/:catchAll(.*)*',
     component: () => import('pages/Error404.vue')
   },
-  //login
+    //login
   {
     path: "/login",
     name: "login",
