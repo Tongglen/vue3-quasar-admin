@@ -1,4 +1,10 @@
 // app global css in SCSS form
+html, body {
+  height: 100%;
+}
+#q-app {
+  height: 100%;
+}
 .quasar-logo_img {
   border-radius: 50%;
   height: 38px;
@@ -13,4 +19,3 @@
 .quasar-logo_img:hover{
   transform: rotate(360deg);
 }
-
