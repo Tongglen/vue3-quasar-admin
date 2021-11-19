@@ -97,5 +97,9 @@ export default {
     smsCode: '短信验证码',
     mobile: '手机号码',
   },
+  countdown: {
+    normalText: '获取验证码',
+    sendText: '{0}秒后重新获取',
+  },
 };
 

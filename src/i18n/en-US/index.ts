@@ -104,4 +104,8 @@ export default {
     smsCode: 'SMS code',
     mobile: 'Mobile',
   },
+  countdown: {
+    normalText: 'Get SMS code',
+    sendText: 'Reacquire in {0}s',
+  },
 };

@@ -1,5 +1,5 @@
 <template>
-  <template v-if="false">
+  <template v-if="isShow">
     <div class="text-h4">{{ $t('login.signInFormTitle') }}</div>
     <q-input v-model="loginName" :label="$t('login.userName')" />
     <q-input v-model="loginPass" :label="$t('login.password')" type="password" />
@@ -25,13 +25,19 @@
 </template>
 <script lang='ts' setup>
 import { useQuasar } from "quasar";
-import { ref } from 'vue';
+import { computed, ref, unref } from 'vue';
+import { LoginStateEnum, useLoginState } from './useLogin';
+import  { useRouter }  from 'vue-router';
 
 const quasar = useQuasar();
 const loginName = ref("admin");
 const loginPass = ref("admin");
 const rememberMe = ref(false);
 
+const {  getLoginState } = useLoginState();
+const isShow = computed(() => unref(getLoginState) === LoginStateEnum.LOGIN);
+
+const router = useRouter()
 function submit() {
   if (!loginName.value) {
     quasar.notify("用户名不能为空！");
@@ -41,6 +47,7 @@ function submit() {
     quasar.notify("密码不能为空！");
     return;
   }
+  void router.push('/')
   // quasar.loading.show({
   //   message: "登录中",
   // });

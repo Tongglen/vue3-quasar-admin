@@ -9,12 +9,12 @@
           @update:model-value="change"
           :false-value="$t('login.light')"
           :true-value="$t('login.dark')"
-          v-model ="pinkModel"
+          v-model="pinkModel"
         />
         <q-select
           v-model="locale"
           :options="localeOptions"
-          label="Quasar Language"
+          label="Language"
           dense
           borderless
           emit-value
@@ -26,11 +26,30 @@
       <LoginForm />
       <MobileForm />
 
-      <div style='margin-top: 30px'>
+      <div style="margin-top: 30px" v-if='isShow'>
         <div class="q-gutter-xs">
-          <q-btn outline color="primary" class='otherLogin' :label="$t('login.mobileSignInFormTitle')" />
-          <q-btn outline color="primary" class='otherLogin' :label="$t('login.qrSignInFormTitle')" />
-          <q-btn outline color="primary" class='otherLogin' :label="$t('login.registerButton')" />
+          <q-btn
+            no-caps
+            outline
+            color="primary"
+            class="otherLogin"
+            @click="setLoginState(LoginStateEnum.MOBILE)"
+            :label="$t('login.mobileSignInFormTitle')"
+          />
+          <q-btn
+            no-caps
+            outline
+            color="primary"
+            class="otherLogin"
+            :label="$t('login.qrSignInFormTitle')"
+          />
+          <q-btn
+            no-caps
+            outline
+            color="primary"
+            class="otherLogin"
+            :label="$t('login.registerButton')"
+          />
         </div>
       </div>
       <div class="flex justify-evenly antIcon">
@@ -43,12 +62,10 @@
     </div>
   </div>
 </template>
-<script>
 
-</script>
-<script lang="ts" setup>
-import { useI18n } from 'vue-i18n'
-import { ref, reactive, watch } from "vue";
+<script lang='ts' setup>
+import { useI18n } from "vue-i18n";
+import { ref, reactive, watch, computed, unref } from 'vue';
 import { Dark } from "quasar";
 import {
   GithubFilled,
@@ -56,41 +73,48 @@ import {
   AlipayCircleFilled,
   GoogleCircleFilled,
   TwitterCircleFilled,
-} from '@ant-design/icons-vue';
-import LoginForm  from './loginForm.vue'
-import MobileForm  from './MobileForm.vue'
+} from "@ant-design/icons-vue";
+import LoginForm from "./loginForm.vue";
+import MobileForm from "./MobileForm.vue";
+import { LoginStateEnum, useLoginState } from './useLogin';
 
-const { locale } = useI18n({ useScope: 'global' })
+const { getLoginState, setLoginState } = useLoginState();
+
+const isShow = computed(() => unref(getLoginState) === LoginStateEnum.LOGIN);
+
+
+
+const { locale } = useI18n({ useScope: "global" });
 const localeOptions = reactive([
-  { value: 'en-US', label: 'English' },
-  { value: 'zh-CN', label: '中文' }
-])
-const pinkModel = ref(useI18n().t('login.light'));
+  { value: "en-US", label: "English" },
+  { value: "zh-CN", label: "中文" },
+]);
+const pinkModel = ref(useI18n().t("login.light"));
 // Must be called at the top of a `setup` function
 // watchEffect(() => {
 //   pinkModel.value = useI18n().t('login.light')
 // })
 //暂时用watch代替
-watch(locale,() =>{
-  if(locale.value === 'en-US'){
-    if(pinkModel.value === '明亮'){
-      pinkModel.value = 'light'
-    }else{
-      pinkModel.value = 'dark'
+watch(locale, () => {
+  if (locale.value === "en-US") {
+    if (pinkModel.value === "明亮") {
+      pinkModel.value = "light";
+    } else {
+      pinkModel.value = "dark";
     }
-  }else{
-    if(pinkModel.value === 'light'){
-      pinkModel.value = '明亮'
-    }else{
-      pinkModel.value = '暗黑'
+  } else {
+    if (pinkModel.value === "light") {
+      pinkModel.value = "明亮";
+    } else {
+      pinkModel.value = "暗黑";
     }
   }
-})
+});
+
 //主题切换
 function change() {
   Dark.toggle();
 }
-
 </script>
 
 <style lang="scss" scoped>
@@ -113,7 +137,7 @@ function change() {
   .login {
     .loginForm {
       position: relative;
-      width: 400px;
+      width: 500px;
       left: 50%;
       top: 200px;
       transform: translateX(-50%);
@@ -123,7 +147,7 @@ function change() {
     }
     .antIcon {
       margin-top: 30px;
-      .anticon{
+      .anticon {
         font-size: 22px;
         color: #888;
         cursor: pointer;
@@ -148,7 +172,7 @@ function change() {
     }
     .antIcon {
       margin-top: 30px;
-      .anticon{
+      .anticon {
         font-size: 22px;
         color: #888;
         cursor: pointer;
@@ -170,11 +194,11 @@ function change() {
       transform: translateX(-50%);
     }
     .otherLogin {
-      width:32%;
+      width: 100%;
     }
     .antIcon {
       margin-top: 30px;
-      .anticon{
+      .anticon {
         font-size: 22px;
         color: #888;
         cursor: pointer;
@@ -185,5 +209,4 @@ function change() {
     }
   }
 }
-
 </style>
