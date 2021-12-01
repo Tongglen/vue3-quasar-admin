@@ -47,10 +47,20 @@ function submit() {
     quasar.notify("密码不能为空！");
     return;
   }
-  void router.push('/')
-  // quasar.loading.show({
-  //   message: "登录中",
-  // });
+  quasar.loading.show({
+    message: "登录中",
+  });
+  let timer
+  timer = setTimeout(() => {
+    quasar.loading.hide()
+    timer = void 0
+    void router.push('/')
+    clearTimeout(timer)
+
+  }, 1000)
+
+
+
 }
 
 </script>

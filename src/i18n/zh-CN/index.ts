@@ -101,5 +101,11 @@ export default {
     normalText: '获取验证码',
     sendText: '{0}秒后重新获取',
   },
+  dashboard: {
+    dashboard: 'Dashboard',
+    about: '关于',
+    workbench: '工作台',
+    analysis: '分析页',
+  }
 };
 

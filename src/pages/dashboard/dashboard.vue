@@ -9,10 +9,10 @@
   </q-page>
 </template>
 
-<script>
-import { defineComponent } from "vue";
+<script lang='js' setup>
 
-export default defineComponent({
-  name: "PageIndex",
-});
 </script>
+
+<style lang='sass' scoped>
+
+</style>

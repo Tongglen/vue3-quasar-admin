@@ -1,11 +1,9 @@
 <template>
   <q-layout view="hHh LpR fff">
-
     <q-header bordered class="bg-primary text-white" height-hint="98">
       <q-toolbar>
         <q-btn dense flat round icon="menu" @click="toggleLeftDrawer" />
         <q-toolbar-title>
-
           <q-toggle
             :label="pinkModel"
             color="black"
@@ -18,10 +16,10 @@
 
     </q-header>
 
-    <q-drawer show-if-above v-model="leftDrawerOpen" side="left" bordered>
+    <q-drawer show-if-above v-model="leftDrawerOpen" side="left" bordered :width="240" :breakpoint='1000'>
       <!-- drawer content -->
+      <DrawerContent />
     </q-drawer>
-
     <q-page-container>
       <router-view />
     </q-page-container>
@@ -31,13 +29,18 @@
 
 <script setup>
 import { Dark } from 'quasar'
-import { ref } from 'vue'
+import { ref } from 'vue';
+import DrawerContent from './drawerContent/index.vue'
 
 const leftDrawerOpen = ref(false)
 const pinkModel = ref("Agreed")
 function toggleLeftDrawer () {
+  console.log(leftDrawerOpen.value)
   leftDrawerOpen.value = !leftDrawerOpen.value
 }
+// watch(leftDrawerOpen,(newVal,oldVal) =>{
+//   console.log(newVal)
+// })
 function change() {
   Dark.toggle()
 }
