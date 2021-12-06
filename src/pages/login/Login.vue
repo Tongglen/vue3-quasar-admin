@@ -121,15 +121,14 @@ function change() {
 .body--dark {
   .login {
     height: 100%;
-    background: url(src/assets/login-bg.jpg);
+    background: url(src/assets/login-bg.jpg) round;
     background-size: auto;
   }
 }
 .body--light {
   .login {
     height: 100%;
-    background: url(src/assets/login-light.jpg) no-repeat;
-    background-size: auto;
+    background: url(src/assets/login-light.jpg) round;
   }
 }
 
@@ -139,7 +138,7 @@ function change() {
       position: relative;
       width: 500px;
       left: 50%;
-      top: 200px;
+      top: 20%;
       transform: translateX(-50%);
     }
     .otherLogin {
@@ -164,7 +163,7 @@ function change() {
       position: relative;
       width: 400px;
       left: 50%;
-      top: 200px;
+      top: 20%;
       transform: translateX(-50%);
     }
     .otherLogin {
@@ -187,10 +186,9 @@ function change() {
   .login {
     .loginForm {
       position: relative;
-      width: 90%;
-      min-width: 360px;
+      width: 80%;
       left: 50%;
-      top: 200px;
+      top: 5%;
       transform: translateX(-50%);
     }
     .otherLogin {
