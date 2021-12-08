@@ -134,6 +134,8 @@ function change() {
 
 @media (max-width: $breakpoint-xl-max) {
   .login {
+    overflow: auto;
+    padding-bottom: 20px;
     .loginForm {
       position: relative;
       width: 500px;
@@ -146,6 +148,7 @@ function change() {
     }
     .antIcon {
       margin-top: 30px;
+      padding-bottom: 20px;
       .anticon {
         font-size: 22px;
         color: #888;
