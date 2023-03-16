@@ -1,6 +1,7 @@
 <template>
   <template v-if="isShow">
     <div class="text-h4">{{ $t('login.signInFormTitle') }}</div>
+    <slot name='one'></slot>
     <q-input v-model="loginName" :label="$t('login.userName')" />
     <q-input v-model="loginPass" :label="$t('login.password')" type="password" />
     <div style="margin-top: 8px; display: flex">

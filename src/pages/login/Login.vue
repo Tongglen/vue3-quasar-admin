@@ -23,9 +23,10 @@
           style="min-width: 150px"
         />
       </div>
-      <LoginForm />
+      <LoginForm v-slot='one'>
+        {{ one }}
+      </LoginForm>
       <MobileForm />
-
       <div style="margin-top: 30px" v-if='isShow'>
         <div class="q-gutter-xs">
           <q-btn
@@ -83,7 +84,6 @@ const { getLoginState, setLoginState } = useLoginState();
 const isShow = computed(() => unref(getLoginState) === LoginStateEnum.LOGIN);
 
 
-
 const { locale } = useI18n({ useScope: "global" });
 const localeOptions = reactive([
   { value: "en-US", label: "English" },
@@ -125,6 +125,7 @@ function change() {
     background-size: auto;
   }
 }
+
 .body--light {
   .login {
     height: 100%;
@@ -136,6 +137,7 @@ function change() {
   .login {
     overflow: auto;
     padding-bottom: 20px;
+
     .loginForm {
       position: relative;
       width: 500px;
@@ -143,23 +145,28 @@ function change() {
       top: 20%;
       transform: translateX(-50%);
     }
+
     .otherLogin {
       width: 32%;
     }
+
     .antIcon {
       margin-top: 30px;
       padding-bottom: 20px;
+
       .anticon {
         font-size: 22px;
         color: #888;
         cursor: pointer;
       }
+
       :hover {
         color: #0960bd;
       }
     }
   }
 }
+
 @media (max-width: $breakpoint-xs-max) {
   .login {
     .loginForm {
@@ -169,22 +176,27 @@ function change() {
       top: 20%;
       transform: translateX(-50%);
     }
+
     .otherLogin {
       width: 32%;
     }
+
     .antIcon {
       margin-top: 30px;
+
       .anticon {
         font-size: 22px;
         color: #888;
         cursor: pointer;
       }
+
       :hover {
         color: #0960bd;
       }
     }
   }
 }
+
 @media (max-width: $breakpoint-xs-max) {
   .login {
     .loginForm {
@@ -194,20 +206,23 @@ function change() {
       top: 5%;
       transform: translateX(-50%);
     }
+
     .otherLogin {
       width: 100%;
     }
+
     .antIcon {
       margin-top: 30px;
+
       .anticon {
         font-size: 22px;
         color: #888;
         cursor: pointer;
       }
+
       :hover {
         color: #0960bd;
       }
     }
   }
-}
-</style>
+}</style>
